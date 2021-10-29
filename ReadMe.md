@@ -4,6 +4,7 @@ Front-End
 2. Used Telerik controls for efficient and faster development
 3. Made user-friendly by adding few features as was ready made in Telerik grid, such as searching, sorting and paging.
 4. Made call asynchronous for non-blocking.
+5. Also have made responsive to all screen sizes, but have left partially complete because of the time limits.
 
 
 Back-End
