@@ -1,0 +1,47 @@
+﻿@page "/xmldata"
+@using DisplayData.Services
+@using DisplayData.Entities
+@inject XmlService XmlService
+
+<h3> Scenarios </h3>
+
+<TelerikGrid Data="@Scenarios" Width="90%" Height="800px" Sortable="true" Pageable="true">
+    <GridToolBar>
+        <span>Write in the textbox on the right-hand side to filter all string columns.</span>
+        <span class="k-toolbar-spacer"></span>
+        <GridSearchBox DebounceDelay="200"></GridSearchBox>
+    </GridToolBar>
+    <GridColumns>
+        <GridColumn Field=@nameof(Scenario.ScenarioID) Width="60px" Title="ID" />
+        <GridColumn Field=@nameof(Scenario.Name) Title="Name" />
+        <GridColumn Field=@nameof(Scenario.Surname) Visible="@(!Small)" Title="Surname" />
+        <GridColumn Field=@nameof(Scenario.Forename) Visible="@(!Small)" Title="Forename" />
+        <GridColumn Field=@nameof(Scenario.UserID) Visible="@(Large)" Title="UserID" />
+        <GridColumn Field=@nameof(Scenario.SampleDate) Visible="@(!Small)" Title="Sample Date" />
+        <GridColumn Field=@nameof(Scenario.CreationDate) Visible="@(!Small)" Title="CreationDate" />
+        <GridColumn Field=@nameof(Scenario.NumMonths) Visible="@(!XSmall)" Title="Num Months" />
+        <GridColumn Field=@nameof(Scenario.MarketID) Visible="@(!XSmall)" Title="Market ID" />
+        <GridColumn Field=@nameof(Scenario.NetworkLayerID) Title="Network Layer ID" />
+
+    </GridColumns>
+</TelerikGrid>
+
+<TelerikMediaQuery Media="(max-width: 600px)" OnChange="((changed) => XSmall = changed)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="(max-width: 960px)" OnChange="((changed) => Small = changed)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="(min-width: 961px)" OnChange="((changed) => Medium = changed)"></TelerikMediaQuery>
+<TelerikMediaQuery Media="(min-width: 1200px)" OnChange="((changed) => Large = changed)"></TelerikMediaQuery>
+
+
+@code {
+    private IEnumerable<Scenario> Scenarios { get; set; }
+
+    private bool XSmall { get; set; }
+    private bool Small { get; set; }
+    private bool Medium { get; set; }
+    private bool Large { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Scenarios = await Task.Run(() => XmlService.ReadXmlDataFromFile(AppContext.BaseDirectory + "Data\\Data.xml").Result.Scenarios);
+    }
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+	<Scenario>
+		<ScenarioID>1</ScenarioID>
+		<Name>Scenario1</Name>
+		<Surname>BALDWIN</Surname>
+		<Forename>EDWARD</Forename>
+		<UserID>6F55DFD1-A235-4BAE-B958-C1A0AB4D5236</UserID>
+		<SampleDate>2013-02-01T06:02:00</SampleDate>
+		<CreationDate>2013-02-01T13:00:00</CreationDate>
+		<NumMonths>12</NumMonths>
+		<MarketID>2</MarketID>
+		<NetworkLayerID>1</NetworkLayerID>
+	</Scenario>
+</Data>

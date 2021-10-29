@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Telerik.UI.for.Blazor.Trial" Version="2.28.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DisplayData.Entities\DisplayData.Entities.csproj" />
+    <ProjectReference Include="..\DisplayData.Infrastructure\DisplayData.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
