@@ -1,10 +1,10 @@
 Front-End
 
-1. Used blazor because it was mentioned in interview and also thought to do something which didn't know rather than which I've already done many times.
+1. Used Blazor(Server) because it was mentioned in interview and also thought to do something which didn't know rather than which I've already done many times.
 2. Used Telerik controls for efficient and faster development
 3. Made user-friendly by adding few features as was ready made in Telerik grid, such as searching, sorting and paging.
 4. Made call asynchronous for non-blocking.
-5. Also have made responsive to all screen sizes, but have left partially complete because of the time limits.
+5. Responsive to all screen sizes.
 
 
 Back-End
