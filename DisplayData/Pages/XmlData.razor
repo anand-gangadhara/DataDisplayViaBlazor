@@ -1,6 +1,6 @@
 ﻿@page "/xmldata"
 @using DisplayData.Services
-@using DisplayData.Entities
+@using DisplayData.DTO
 @inject XmlService XmlService
 
 <h3> Scenarios </h3>
@@ -12,16 +12,16 @@
         <GridSearchBox DebounceDelay="200"></GridSearchBox>
     </GridToolBar>
     <GridColumns>
-        <GridColumn Field=@nameof(Scenario.ScenarioID) Width="60px" Title="ID" />
-        <GridColumn Field=@nameof(Scenario.Name) Title="Name" />
-        <GridColumn Field=@nameof(Scenario.Surname) Visible="@(!Small)" Title="Surname" />
-        <GridColumn Field=@nameof(Scenario.Forename) Visible="@(!Small)" Title="Forename" />
-        <GridColumn Field=@nameof(Scenario.UserID) Visible="@(Large)" Title="UserID" />
-        <GridColumn Field=@nameof(Scenario.SampleDate) Visible="@(!Small)" Title="Sample Date" />
-        <GridColumn Field=@nameof(Scenario.CreationDate) Visible="@(!Small)" Title="CreationDate" />
-        <GridColumn Field=@nameof(Scenario.NumMonths) Visible="@(!XSmall)" Title="Num Months" />
-        <GridColumn Field=@nameof(Scenario.MarketID) Visible="@(!XSmall)" Title="Market ID" />
-        <GridColumn Field=@nameof(Scenario.NetworkLayerID) Title="Network Layer ID" />
+        <GridColumn Field=@nameof(ScenarioDto.ScenarioID) Width="60px" Title="ID" />
+        <GridColumn Field=@nameof(ScenarioDto.Name) Title="Name" />
+        <GridColumn Field=@nameof(ScenarioDto.Surname) Visible="@(!Small)" Title="Surname" />
+        <GridColumn Field=@nameof(ScenarioDto.Forename) Visible="@(!Small)" Title="Forename" />
+        <GridColumn Field=@nameof(ScenarioDto.UserID) Visible="@(Large)" Title="UserID" />
+        <GridColumn Field=@nameof(ScenarioDto.SampleDate) Visible="@(!Small)" Title="Sample Date" />
+        <GridColumn Field=@nameof(ScenarioDto.CreationDate) Visible="@(!Small)" Title="CreationDate" />
+        <GridColumn Field=@nameof(ScenarioDto.NumMonths) Visible="@(!XSmall)" Title="Num Months" />
+        <GridColumn Field=@nameof(ScenarioDto.MarketID) Visible="@(!XSmall)" Title="Market ID" />
+        <GridColumn Field=@nameof(ScenarioDto.NetworkLayerID) Title="Network Layer ID" />
 
     </GridColumns>
 </TelerikGrid>
@@ -33,7 +33,7 @@
 
 
 @code {
-    private IEnumerable<Scenario> Scenarios { get; set; }
+    private IEnumerable<ScenarioDto> Scenarios { get; set; }
 
     private bool XSmall { get; set; }
     private bool Small { get; set; }
@@ -42,6 +42,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Scenarios = await Task.Run(() => XmlService.ReadXmlDataFromFile(AppContext.BaseDirectory + "Data\\Data.xml").Result.Scenarios);
+        Scenarios = await Task.Run(() => XmlService.ReadXmlDataFromFile(AppContext.BaseDirectory + "Data\\Data.xml"));        
     }
 }
